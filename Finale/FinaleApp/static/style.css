@@ -9,5 +9,11 @@ body {
     left: 36%;
 }
 
+.bookForm {
+    position: absolute;
+    left: 40%;
+    width: 20%;
+    height: 30%;
+}
 
 

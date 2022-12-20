@@ -42,8 +42,8 @@
               Accounts
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">User Sign-In</a></li>
-              <li><a class="dropdown-item" href="#">Business Sign-In</a></li>
+              <li><a class="dropdown-item" href="{% url 'user' %}">User Sign-In</a></li>
+              <li><a class="dropdown-item" href="{% url 'business' %}">Business Sign-In</a></li>
             </ul>
           </li>
           
@@ -56,7 +56,18 @@
 </head>
 <body>
   
-<h1> Delivery </h1>
+<h2> Order chosen,<br> please complete delivery details. </h2>
+
+<div class='bookForm'>
+  <form>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="username" placeholder="Please enter address...">
+    </div>
+    
+  </form>
+  <button type="button" class="btn btn-light">Place Delivery Order</button>
+  </div>
 
 </body>
 </html>

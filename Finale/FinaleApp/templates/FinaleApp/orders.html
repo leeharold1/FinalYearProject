@@ -42,8 +42,8 @@
               Accounts
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">User Sign-In</a></li>
-              <li><a class="dropdown-item" href="#">Business Sign-In</a></li>
+              <li><a class="dropdown-item" href="{% url 'user' %}">User Sign-In</a></li>
+              <li><a class="dropdown-item" href="{% url 'business' %}">Business Sign-In</a></li>
             </ul>
           </li>
           
@@ -56,7 +56,34 @@
 </head>
 <body>
   
-<h1> Orders </h1>
+<h3> Your order has been chosen.<br> Fill out the details below and complete your order.</h3>
+
+
+<div class='bookForm'>
+<form>
+  <div class="form-group">
+    <label for="customerName">Name of User for Order</label>
+    <input type="text" class="form-control" id="customerName" placeholder="Please enter booking name...">
+  </div>
+  <div class="form-group">
+    <label for="time">Time</label>
+    <select class="form-control" id="time">
+      <option>13:00</option>
+      <option>13:30</option>
+      <option>14:00</option>
+      <option>14:30</option>
+      <option>15:00</option>
+      <option>15:30</option>
+      <option>16:00</option>
+      <option>16:30</option>
+      <option>17:00</option>
+      <option>17:30</option>
+    </select>
+  </div>
+</form>
+<button type="button" class="btn btn-light">Place Order</button>
+</div>
+
 
 </body>
 </html>
