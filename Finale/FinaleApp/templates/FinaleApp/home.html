@@ -15,7 +15,7 @@
 
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Finale</a>
+      <a class="navbar-brand" href="{% url '' %}">Finale</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -67,7 +67,7 @@
     <div class="card-body">
       <h5 class="card-title">Delivery</h5>
       <p class="card-text">Cozy night in? Having some friends over? Or just plain lazy? Get your food delivered directly to your door.</p>
-      <a href="#" class="btn btn-primary">Delivery</a>
+      <a href="{% url 'delivery' %}" class="btn btn-primary">Delivery</a>
     </div>
   </div>
 
@@ -77,7 +77,7 @@
     <div class="card-body">
       <h5 class="card-title">Order Ahead</h5>
       <p class="card-text">Living a fast and furious lifestyle? No time for queues? Order your food to be ready when you get there.</p>
-      <a href="#" class="btn btn-primary"> Orders</a>
+      <a href="{% url 'orders' %}" class="btn btn-primary"> Orders</a>
     </div>
   </div>
 
@@ -87,7 +87,7 @@
     <div class="card-body">
       <h5 class="card-title">Book a Reservation</h5>
       <p class="card-text">Looking for something a little more elegant? We also handle reservations.</p>
-      <a href="#" class="btn btn-primary">Bookings</a>
+      <a href="{% url 'bookings' %}" class="btn btn-primary">Bookings</a>
     </div>
   </div>
 
