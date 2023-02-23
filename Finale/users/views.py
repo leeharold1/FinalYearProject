@@ -19,6 +19,9 @@ def login_user(request):
     else:
         return render(request, 'authenticate/login.html', {})
 
+def logout_user(request):
+	logout(request)
+	return redirect('login')
 
 
 	

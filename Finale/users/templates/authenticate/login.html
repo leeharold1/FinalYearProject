@@ -8,14 +8,22 @@
 
 <h1> Login </h1>
 
+<a href="{% url 'home' %}"> Home </a>
+
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}"> Logout </a>
+{% else %}
+<a href="{% url 'login' %}"> Login </a>
+{% endif %}
+
 <form action="" method=POST>
 	{% csrf_token %}
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <label for="exampleInputEmail" class="form-label">Username</label>
     <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <label for="exampleInputPassword" class="form-label">Password</label>
     <input type="password" class="form-control" name="password">
   </div>
   <input type="submit" value="Submit" class="btn btn secondary">
