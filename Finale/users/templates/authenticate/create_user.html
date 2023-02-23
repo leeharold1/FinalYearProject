@@ -1,9 +1,15 @@
+{% extends 'base.html' %}
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Finale - Home </title>
 </head>
 <body>
+
+{% block content %}
+
+
 
 {% if form.errors %}
 
@@ -31,7 +37,7 @@
   <input type="submit" value="Submit" class="btn btn secondary">
 </form>
 
-
+{% endblock %}
 
 </body>
 </html>

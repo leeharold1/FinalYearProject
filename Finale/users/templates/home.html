@@ -1,9 +1,13 @@
+{% extends 'base.html' %}
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Finale - Home </title>
 </head>
 <body>
+
+{% block content %}
 
 <h1> "The Journey Ahead." </h1>
 
@@ -15,5 +19,8 @@
 <a href="{% url 'login' %}"> Login </a>
 <a href="{% url 'create_user' %}"> Sign-Up </a>
 {% endif %}
+
+{% endblock %}
+
 </body>
 </html>
