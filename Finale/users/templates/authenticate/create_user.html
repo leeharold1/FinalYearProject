@@ -5,7 +5,13 @@
 </head>
 <body>
 
-<h1> "The Journey Ahead." </h1>
+{% if form.errors %}
+
+<h3> Error processing sign-up. Please try again. </h3>
+
+{% endif %}
+
+<h1> Sign-Up </h1>
 
 <a href="{% url 'home' %}"> Home </a>
 
@@ -15,5 +21,17 @@
 <a href="{% url 'login' %}"> Login </a>
 <a href="{% url 'create_user' %}"> Sign-Up </a>
 {% endif %}
+
+
+<form action="{% url 'create_user' %}" method=POST>
+	{% csrf_token %}
+
+	{{ form.as_p }}
+
+  <input type="submit" value="Submit" class="btn btn secondary">
+</form>
+
+
+
 </body>
 </html>
