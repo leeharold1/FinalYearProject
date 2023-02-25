@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from .forms import CreateUserForm
 
 def home(request):
 	return render(request, 'home.html', {})
@@ -26,7 +27,7 @@ def logout_user(request):
 
 def create_user(request):
 	if request.method == "POST":
-		form = UserCreationForm(request.POST)
+		form = CreateUserForm(request.POST)
 		if form.is_valid():
 			form.save()
 			username = form.cleaned_data['username']
@@ -35,7 +36,7 @@ def create_user(request):
 			login(request, user)
 			return redirect('home')
 	else: 
-		form = UserCreationForm()
+		form = CreateUserForm()
 
 	return render(request, 'authenticate/create_user.html', {'form':form,})
 	
