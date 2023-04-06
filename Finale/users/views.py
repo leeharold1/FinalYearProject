@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .forms import CreateUserForm
+from django.urls import reverse_lazy
+from django.views import generic
+
 
 def home(request):
 	return render(request, 'home.html', {})
@@ -40,3 +43,7 @@ def create_user(request):
 
 	return render(request, 'authenticate/create_user.html', {'form':form,})
 	
+class UserEditView(generic.CreateView):
+	form_class = UserChangeForm
+	template_name = 'authenticate/edit_profile.html'
+	success_url = reverse_lazy('home')
