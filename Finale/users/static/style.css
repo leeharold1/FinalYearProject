@@ -19,3 +19,7 @@ input[type="CharField"] textarea {
   background-color: #474747;
   color: white;
 }
+
+.top {
+    color: white;
+}

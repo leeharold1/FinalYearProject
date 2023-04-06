@@ -47,3 +47,7 @@ class UserEditView(generic.CreateView):
 	form_class = UserChangeForm
 	template_name = 'authenticate/edit_profile.html'
 	success_url = reverse_lazy('home')
+
+
+def restaurants(request):
+	return render(request, 'OBR/restaurants.html', {})
