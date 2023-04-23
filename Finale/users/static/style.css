@@ -3,12 +3,10 @@
  }
 
 .container{
-    margin-top: 2%;
     background-color: black;
     color: white;
     border: 15px double;
     border-color: #ff6ec7 #00f0ff #00f0ff #ff6ec7;
-    border-radius: 10px;
 }
 
 input[type="text"],

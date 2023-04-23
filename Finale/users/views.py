@@ -49,5 +49,11 @@ class UserEditView(generic.CreateView):
 	success_url = reverse_lazy('home')
 
 
-def restaurants(request):
-	return render(request, 'OBR/restaurants.html', {})
+def delivery(request):
+	return render(request, 'OBR/delivery.html', {})
+
+def collection(request):
+	return render(request, 'OBR/collection.html', {})
+
+def booking(request):
+	return render(request, 'OBR/booking.html', {})
