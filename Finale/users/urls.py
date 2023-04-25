@@ -10,6 +10,9 @@ urlpatterns = [
     path('create_user', views.create_user, name="create_user"),
     path('edit_profile', views.UserEditView.as_view(), name="edit_profile"),
     path('delivery', views.delivery, name="delivery"),
+    path('deliveryAdd', views.deliveryAdd, name="deliveryAdd"),
     path('booking', views.booking, name="booking"),
+    path('bookingAdd', views.bookingAdd, name="bookingAdd"),
     path('collection', views.collection, name="collection"),
+    path('collectionAdd', views.collectionAdd, name="collectionAdd"),
 ]
