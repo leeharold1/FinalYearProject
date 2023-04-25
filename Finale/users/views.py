@@ -50,10 +50,10 @@ class UserEditView(generic.CreateView):
 
 
 def delivery(request):
-	return render(request, 'OBR/delivery.html', {})
+	return render(request, 'BCD/delivery.html', {})
 
 def collection(request):
-	return render(request, 'OBR/collection.html', {})
+	return render(request, 'BCD/collection.html', {})
 
 def booking(request):
-	return render(request, 'OBR/booking.html', {})
+	return render(request, 'BCD/booking.html', {})
