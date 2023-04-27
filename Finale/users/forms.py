@@ -1,6 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms 
+from .models import Reservations
+from django.utils import timezone
 
 class CreateUserForm(UserCreationForm):
 	email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
@@ -17,3 +19,15 @@ class CreateUserForm(UserCreationForm):
 		self.fields['username'].widget.attrs['class'] = 'form-control'
 		self.fields['password1'].widget.attrs['class'] = 'form-control'
 		self.fields['password2'].widget.attrs['class'] = 'form-control'
+
+
+
+class ReserveTableForm(forms.ModelForm):
+	class Meta:
+		model = Reservations
+		fields = '__all__'
+		widgets = {
+					'date': forms.DateInput(attrs={'type': 'date', 'min': timezone.now().date()}),
+					'time': forms.TimeInput(attrs={'type': 'time', 'step': 900, 'min': '18:00'}),
+					'party_size': forms.NumberInput(attrs={'min': 2, 'step': 2}),
+					}

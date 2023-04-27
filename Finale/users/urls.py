@@ -12,7 +12,7 @@ urlpatterns = [
     path('delivery', views.delivery, name="delivery"),
     path('deliveryAdd', views.deliveryAdd, name="deliveryAdd"),
     path('booking', views.booking, name="booking"),
-    path('bookingAdd', views.bookingAdd, name="bookingAdd"),
+    path('bookingAdd', views.ReserveTable.as_view(), name="bookingAdd"),
     path('collection', views.collection, name="collection"),
     path('collectionAdd', views.collectionAdd, name="collectionAdd"),
 ]

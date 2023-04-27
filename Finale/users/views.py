@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .forms import CreateUserForm
+from .forms import CreateUserForm, ReserveTableForm
 from django.urls import reverse_lazy
 from django.views import generic
-
+from .models import Reservations
 
 def home(request):
 	return render(request, 'home.html', {})
@@ -64,5 +64,7 @@ def collectionAdd(request):
 def booking(request):
 	return render(request, 'BCD/booking.html', {})
 
-def bookingAdd(request):
-	return render(request, 'BCD/bookingAdd.html', {})
+class ReserveTable(generic.CreateView):
+    form_class = ReserveTableForm
+    template_name = "BCD/bookingAdd.html"
+    success_url = reverse_lazy('home')
