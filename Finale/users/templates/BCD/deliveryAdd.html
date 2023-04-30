@@ -8,7 +8,25 @@
   </head>
   <body>
     {% block content %}
-      <h1> Delivery Order Page </h1>
+
+    <div class="row">
+      <div class="col">
+    <input type="checkbox" name="group1" id="g11" value="Option 1" onclick="check(this, 'g12', 'g13');" />Option 1
+    <input type="checkbox" name="group1" id="g12" value="Option 2" onclick="check(this, 'g11', 'g13');" />Option 2
+    <input type="checkbox" name="group1" id="g13" value="Option 3" onclick="check(this, 'g11', 'g12');" />Option 3
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+    <input type="checkbox" name="group2" id="g21" value="Option 1" onclick="check(this, 'g22', 'g23');" />Option 1
+    <input type="checkbox" name="group2" id="g22" value="Option 2" onclick="check(this, 'g21', 'g23');" />Option 2
+    <input type="checkbox" name="group2" id="g23" value="Option 3" onclick="check(this, 'g21', 'g22');" />Option 3
+      </div>
+    </div>
+
+    <button onclick="combineOptions()">Combine Options</button>
+
     {% endblock %} 
   </body>
 </html>
