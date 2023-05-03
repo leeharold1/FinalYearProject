@@ -21,6 +21,9 @@ function combineDrinkOptions() {
   } else {
     console.log('Please select one option from each group.');
   }
+
+  // Uncheck all checkboxes
+  $('input[type="checkbox"]').prop('checked', false);
 }
 
 function printDrinkOptions() {
