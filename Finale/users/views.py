@@ -6,6 +6,7 @@ from .forms import CreateUserForm, ReserveTableForm
 from django.urls import reverse_lazy
 from django.views import generic
 from .models import Reservations
+import json
 
 def home(request):
 	return render(request, 'home.html', {})
@@ -53,6 +54,9 @@ def delivery(request):
 	return render(request, 'BCD/delivery.html', {})
 
 def deliveryAdd(request):
+	current_user = request.user
+	user_id = current_user.id
+	print(user_id)
 	return render(request, 'BCD/deliveryAdd.html', {})
 
 def collection(request):
