@@ -36,21 +36,6 @@ function printDrinkOptions() {
   console.log('Selected options: ' + selectedOptions);
 }
 
-// function printDetails() {
-//   console.log(userID.innerText + ' ' + selectedOptions);
-// }
-
-// function printDetails() {
-//   var totalPrice = 0
-//   var prices = selectedOptions.toString();
-//   prices = prices.replace('Coke(330ml)', 1);
-//   prices = prices.replace('7Up(500ml)', 1.75);
-//   prices = prices.replace('Water(1L)', 2.50);
-//   var convertedOptions = prices.split(",");
-//   totalPrice = convertedOptions.join(", ");
-//   console.log(totalPrice);
-// }
-
 function printDetails() {
   var totalPrice = 0
   var prices = selectedOptions.toString();
@@ -70,3 +55,4 @@ function printDetails() {
   var total = eval(totalPrice)
   console.log(total);
 }
+
