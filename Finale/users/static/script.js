@@ -66,9 +66,7 @@ function printDetails() {
     prices = prices.replace('Water(1L)', 2);
   }
   var convertedOptions = prices.split(",");
-  totalPrice = convertedOptions.join(", ");
-  for (let i = 0; i < totalPrice.length; i++) {
-    totalPrice += totalPrice[i];
-  }
-  console.log(totalPrice);
+  totalPrice = convertedOptions.join("+ ");
+  var total = eval(totalPrice)
+  console.log(total);
 }
