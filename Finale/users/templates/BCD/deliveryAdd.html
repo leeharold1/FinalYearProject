@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Finale - Order for Delivery</title>
+    <title> Finale - Order for Delivery.</title>
   </head>
   <body>
-    {% block content %}
 
+    {% block content %}
+    <br> 
+    <p id="userID">{{user.id}}</p> 
     <div class="row">
   <div class="col">
     <input type="checkbox" name="group1" id="g11" value="Coke" onclick="check(this, 'g12', 'g13');" />Coke

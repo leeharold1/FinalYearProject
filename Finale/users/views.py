@@ -54,10 +54,7 @@ def delivery(request):
 	return render(request, 'BCD/delivery.html', {})
 
 def deliveryAdd(request):
-	current_user = request.user
-	user_id = current_user.id
-	print(user_id)
-	return render(request, 'BCD/deliveryAdd.html', {})
+    return render(request, 'BCD/deliveryAdd.html', {})
 
 def collection(request):
 	return render(request, 'BCD/collection.html', {})

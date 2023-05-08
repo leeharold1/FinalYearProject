@@ -1,5 +1,11 @@
 console.log("Script connected!");
 
+document.addEventListener('DOMContentLoaded', () => {
+  const userID = document.getElementById('userID');
+  const cleanID = userID.innerText;
+  console.log(cleanID);
+});
+
 var selectedOptions = []; // declare the array as a global variable
 
 function check(checkbox, uncheck1, uncheck2) {
