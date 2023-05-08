@@ -35,3 +35,7 @@ function combineDrinkOptions() {
 function printDrinkOptions() {
   console.log('Selected options: ' + selectedOptions);
 }
+
+function printDetails() {
+  console.log(userID.innerText + ' ' + selectedOptions);
+}
