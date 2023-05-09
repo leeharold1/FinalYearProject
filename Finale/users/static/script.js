@@ -56,3 +56,9 @@ function printDetails() {
   console.log('€' + total);
 }
 
+
+
+
+
+
+

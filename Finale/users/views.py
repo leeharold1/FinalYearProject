@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
+from django.db import connection
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .forms import CreateUserForm, ReserveTableForm
 from django.urls import reverse_lazy
 from django.views import generic
-from .models import Reservations
+from .models import Reservations, DeliveryOrder
 import json
+from django.http import JsonResponse
 
 def home(request):
 	return render(request, 'home.html', {})
@@ -42,7 +44,7 @@ def create_user(request):
 	else: 
 		form = CreateUserForm()
 
-	return render(request, 'authenticate/create_user.html', {'form':form,})
+	return render(request, 'authenticate/create_user.html', {'form':form,},)
 	
 class UserEditView(generic.CreateView):
 	form_class = UserChangeForm
@@ -54,6 +56,10 @@ def delivery(request):
 	return render(request, 'BCD/delivery.html', {})
 
 def deliveryAdd(request):
+    data = list(Reservations.objects.values())
+    return JsonResponse({'data': data})
+
+def deliveryAddTemplate(request):
     return render(request, 'BCD/deliveryAdd.html', {})
 
 def collection(request):

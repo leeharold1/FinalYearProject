@@ -11,6 +11,7 @@ urlpatterns = [
     path('edit_profile', views.UserEditView.as_view(), name="edit_profile"),
     path('delivery', views.delivery, name="delivery"),
     path('deliveryAdd', views.deliveryAdd, name="deliveryAdd"),
+    path('deliveryAddTemplate', views.deliveryAdd, name="deliveryAddTemplate"),
     path('booking', views.booking, name="booking"),
     path('bookingAdd', views.ReserveTable.as_view(), name="bookingAdd"),
     path('collection', views.collection, name="collection"),
