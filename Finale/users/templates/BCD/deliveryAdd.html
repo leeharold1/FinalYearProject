@@ -8,6 +8,11 @@
   <body>
 
     {% block content %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
     <br> 
     <p id="userID">{{user.id}}</p> 
     <div class="row">
@@ -28,21 +33,6 @@
 
 <button onclick="combineDrinkOptions()">Add to Order</button>
 <button onclick="printDetails()">Print Details</button>
-<button id="get-data-btn">Get Data</button>
-
-<script>
-    const btn = document.getElementById('get-data-btn');
-    btn.addEventListener('click', async () => {
-    try {
-        const response = await fetch('/deliveryAdd');
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error(error);
-    }
-});
-</script>
-
     {% endblock %} 
   </body>
 </html>

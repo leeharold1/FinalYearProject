@@ -3,7 +3,7 @@ from django.db import connection
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .forms import CreateUserForm, ReserveTableForm
+from .forms import CreateUserForm, ReserveTableForm, DeliveryForm
 from django.urls import reverse_lazy
 from django.views import generic
 from .models import Reservations, DeliveryOrder
@@ -55,12 +55,10 @@ class UserEditView(generic.CreateView):
 def delivery(request):
 	return render(request, 'BCD/delivery.html', {})
 
-def deliveryAdd(request):
-    data = list(Reservations.objects.values())
-    return JsonResponse({'data': data})
-
-def deliveryAddTemplate(request):
-    return render(request, 'BCD/deliveryAdd.html', {})
+vgclass DeliveryAdd(generic.CreateView):
+    form_class = DeliveryForm
+    template_name = "BCD/deliveryAdd.html"
+    success_url = reverse_lazy('home')
 
 def collection(request):
 	return render(request, 'BCD/collection.html', {})

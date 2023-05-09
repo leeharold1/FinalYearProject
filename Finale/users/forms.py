@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms 
-from .models import Reservations
+from .models import Reservations, DeliveryOrder
 from django.utils import timezone
 
 class CreateUserForm(UserCreationForm):
@@ -31,3 +31,15 @@ class ReserveTableForm(forms.ModelForm):
 					'time': forms.TimeInput(attrs={'type': 'time', 'step': 900, 'min': '18:00'}),
 					'party_size': forms.NumberInput(attrs={'min': 2, 'step': 2}),
 					}
+
+
+
+class DeliveryForm(forms.ModelForm):
+	class Meta:
+		model = DeliveryOrder
+		fields = '__all__'
+		widgets = {
+					'customerID' : forms.IntegerField(attrs={'required': True, 'readonly': True, 'value': userID.innerText}),
+					'date': forms.DateInput(attrs={'required': True}),
+					}
+		
