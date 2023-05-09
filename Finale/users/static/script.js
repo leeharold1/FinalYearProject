@@ -40,12 +40,12 @@ function printDetails() {
   var totalPrice = 0
   var prices = selectedOptions.toString();
   for (let i = 0; i < selectedOptions.length; i++) {
-    prices = prices.replace('Coke(330ml)', 1);
-    prices = prices.replace('Coke(500ml)', 2);
-    prices = prices.replace('Coke(1L)', 3);
-    prices = prices.replace('7Up(330ml)', 1);
-    prices = prices.replace('7Up(500ml)', 2);
-    prices = prices.replace('7Up(1L)', 3);
+    prices = prices.replace('Coke(330ml)', 1.30);
+    prices = prices.replace('Coke(500ml)', 2.25);
+    prices = prices.replace('Coke(1L)', 3.30);
+    prices = prices.replace('7Up(330ml)', 1.30);
+    prices = prices.replace('7Up(500ml)', 2.25);
+    prices = prices.replace('7Up(1L)', 3.30);
     prices = prices.replace('Water(330ml)', 1);
     prices = prices.replace('Water(500ml)', 1.50);
     prices = prices.replace('Water(1L)', 2);
@@ -53,6 +53,6 @@ function printDetails() {
   var convertedOptions = prices.split(",");
   totalPrice = convertedOptions.join("+ ");
   var total = eval(totalPrice)
-  console.log(total);
+  console.log('€' + total);
 }
 
