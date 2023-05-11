@@ -8,13 +8,8 @@
   <body>
 
     {% block content %}
-    <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-  </form>
     <br> 
-    <p id="userID">{{user.id}}</p> 
+    <p id="userID">{{user.id}}</p>
     <div class="row">
   <div class="col">
     <input type="checkbox" name="group1" id="g11" value="Coke" onclick="check(this, 'g12', 'g13');" />Coke
@@ -31,8 +26,19 @@
   </div>
 </div>
 
+
+
 <button onclick="combineDrinkOptions()">Add to Order</button>
 <button onclick="printDetails()">Print Details</button>
+<br>
+<div id="combinedOptionsDisplay"></div>
+<br>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
     {% endblock %} 
   </body>
 </html>

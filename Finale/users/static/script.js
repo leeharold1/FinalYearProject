@@ -19,25 +19,33 @@ function check(checkbox, uncheck1, uncheck2) {
 function combineDrinkOptions() {
   var options1 = $('input[name="group1"]:checked').val();
   var options2 = $('input[name="group2"]:checked').val();
+  var combinedOptions = '';
 
   if (options1 && options2) {
-    var combinedOptions = options1 + '(' + options2 + ') ';
+    combinedOptions = options1 + '(' + options2 + ') ';
     selectedOptions.push(combinedOptions);
     console.log('Selected options: ' + combinedOptions);
   } else {
     console.log('Please select one option from each group.');
   }
 
+  // Update the content of the <div> element with the combinedOptions
+  $('#combinedOptionsDisplay').text('Added to Cart: ' + combinedOptions);
+
   // Uncheck all checkboxes
   $('input[type="checkbox"]').prop('checked', false);
 }
 
+
 function printDrinkOptions() {
   console.log('Selected options: ' + selectedOptions);
+  // Display selected options in textarea
+  var outputTextarea = document.getElementById('output');
+  outputTextarea.value = 'Selected options: ' + selectedOptions.join(", ");
 }
 
 function printDetails() {
-  var totalPrice = 0
+  var totalPrice = 0;
   var prices = selectedOptions.toString();
   for (let i = 0; i < selectedOptions.length; i++) {
     prices = prices.replace('Coke(330ml)', 1.30);
@@ -51,14 +59,10 @@ function printDetails() {
     prices = prices.replace('Water(1L)', 2);
   }
   var convertedOptions = prices.split(",");
-  totalPrice = convertedOptions.join("+ ");
-  var total = eval(totalPrice)
-  console.log('€' + total);
+  totalPrice = eval(convertedOptions.join("+ "));
+  console.log('€' + totalPrice);
+  
+  // Display total price in textarea
+  var outputTextarea = document.getElementById('output');
+  outputTextarea.value += '\nTotal price: €' + totalPrice;
 }
-
-
-
-
-
-
-

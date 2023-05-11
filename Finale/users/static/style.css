@@ -3,14 +3,21 @@
  }
 
 #userID {
-  display: none;
+/*  display: none;*/
 }
 
+#output {
+  color: pink;
+}
 .container{
     background-color: black;
     color: white;
     border: 15px double;
     border-color: #ff6ec7 #00f0ff #00f0ff #ff6ec7;
+}
+
+.text {
+  position: relative; 
 }
 
 input[type="text"],

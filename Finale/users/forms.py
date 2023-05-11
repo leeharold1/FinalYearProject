@@ -35,11 +35,6 @@ class ReserveTableForm(forms.ModelForm):
 
 
 class DeliveryForm(forms.ModelForm):
-	class Meta:
-		model = DeliveryOrder
-		fields = '__all__'
-		widgets = {
-					'customerID' : forms.IntegerField(attrs={'required': True, 'readonly': True, 'value': userID.innerText}),
-					'date': forms.DateInput(attrs={'required': True}),
-					}
-		
+    class Meta:
+        model = DeliveryOrder
+        fields = '__all__'
