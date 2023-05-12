@@ -16,7 +16,7 @@ function check(checkbox, uncheck1, uncheck2) {
   $('#' + uncheck1 + ',#' + uncheck2).prop('checked', false);
 }
 
-function combineDrinkOptions() {
+function updateOrderAndPrice() {
   var options1 = $('input[name="group1"]:checked').val();
   var options2 = $('input[name="group2"]:checked').val();
   var combinedOptions = '';
@@ -32,19 +32,6 @@ function combineDrinkOptions() {
   // Update the content of the <div> element with the combinedOptions
   $('#combinedOptionsDisplay').text('Added to Cart: ' + combinedOptions);
 
-  // Uncheck all checkboxes
-  $('input[type="checkbox"]').prop('checked', false);
-}
-
-
-function printDrinkOptions() {
-  console.log('Selected options: ' + selectedOptions);
-  // Display selected options in textarea
-  var outputTextarea = document.getElementById('output');
-  outputTextarea.value = 'Selected options: ' + selectedOptions.join(", ");
-}
-
-function printDetails() {
   var totalPrice = 0;
   var prices = selectedOptions.toString();
   for (let i = 0; i < selectedOptions.length; i++) {
@@ -60,9 +47,15 @@ function printDetails() {
   }
   var convertedOptions = prices.split(",");
   totalPrice = eval(convertedOptions.join("+ "));
-  console.log('€' + totalPrice);
-  
-  // Display total price in textarea
-  var outputTextarea = document.getElementById('output');
-  outputTextarea.value += '\nTotal price: €' + totalPrice;
+
+  // Set the totalPrice as the value for the price field
+  document.getElementById("id_price").value = totalPrice.toFixed(2);
+
+  // Set the combinedOptions as the value for the order field
+  document.getElementById("id_order").value = selectedOptions;
+
+  // Uncheck all checkboxes
+  $('input[type="checkbox"]').prop('checked', false);
 }
+
+
