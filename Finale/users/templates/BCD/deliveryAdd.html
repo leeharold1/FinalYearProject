@@ -8,8 +8,9 @@
   <body>
 
     {% block content %}
+    <div class="container text-center">
     <br> 
-    <p id="userID">{{user.id}}</p>
+    <p id="userID">{{user.username}}</p>
     <div class="row">
   <div class="col">
     <input type="checkbox" name="group1" id="g11" value="Coke" onclick="check(this, 'g12', 'g13');" />Coke
@@ -31,23 +32,19 @@
 <button onclick="combineDrinkOptions()">Add to Order</button>
 <button onclick="printDetails()">Print Details</button>
 <br>
+<br>
 <div id="combinedOptionsDisplay"></div>
 <br>
-
+<br>
 <form method="post">
     {% csrf_token %}
     <div>
         <label for="id_deliveryID">Delivery ID:</label>
-        <input type="number" id="id_deliveryID" name="deliveryID" required>
+        <input type="number" id="id_deliveryID" name="deliveryID" readonly required>
     </div>
     <div>
-        <label for="id_customerID">Customer ID:</label>
-        <select id="id_customerID" name="customerID" required>
-            <!-- Populate the options with appropriate customer IDs -->
-            {% for customer in customers %}
-                <option value="{{ customer.id }}">{{ customer.name }}</option>
-            {% endfor %}
-        </select>
+    <label for="id_customerID">Customer:</label>
+    <input type="text" id="id_customerID" name="customerID" value="{{user.username}}" readonly required>
     </div>
     <div>
         <label for="id_address">Address:</label>
@@ -55,11 +52,11 @@
     </div>
     <div>
         <label for="id_order">Order:</label>
-        <input type="text" id="id_order" name="order" maxlength="255" required>
+        <input type="text" id="id_order" name="order" maxlength="255" readonly required>
     </div>
     <div>
         <label for="id_price">Price:</label>
-        <input type="number" id="id_price" name="price" step="0.01" required>
+        <input type="number" id="id_price" name="price" step="0.01" readonly required>
     </div>
     <div>
         <label for="id_notes">Notes:</label>
@@ -67,7 +64,7 @@
     </div>
     <button type="submit">Submit</button>
 </form>
-
+</div>
     {% endblock %} 
   </body>
 </html>

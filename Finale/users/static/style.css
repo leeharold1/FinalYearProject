@@ -6,9 +6,6 @@
 /*  display: none;*/
 }
 
-#output {
-  color: pink;
-}
 .container{
     background-color: black;
     color: white;
@@ -38,4 +35,12 @@ input[type="checkbox"] {
 
 button {
   margin-top: 10px;
+}
+
+#deliveryDetails {
+  text-align: left;
+}
+
+.combinesOptionsDisplay {
+  color: white;
 }
