@@ -6,6 +6,10 @@
   display: none;
 }
 
+#detailWarning {
+  font-weight: bolder;
+}
+
 .container{
     background-color: black;
     color: white;

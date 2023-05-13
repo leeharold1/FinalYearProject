@@ -43,3 +43,10 @@ class CollectionForm(forms.ModelForm):
     class Meta:
         model = CollectionOrder
         fields = '__all__'
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        instance.pickupTime = timezone.now() + timezone.timedelta(minutes=20)
+        if commit:
+            instance.save()
+        return instance

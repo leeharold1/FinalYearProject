@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Finale - Reservation Details</title>
+  </head>
+  <body>
+    {% block content %}
+    <div class="container text-center">
+    <h1>Reservation Details</h1>
+    <p id = 'detailWarning'> (Please take a screenshot or note down <br>your details to show to your delivery driver upon arrival}</p>
+    <p>Name: {{ form.instance.name }}</p>
+    <p>Date: {{ form.instance.date }}</p>
+    <p>Time: {{ form.instance.time }}</p>
+    <p>Party Size: {{ form.instance.party_size }}</p>
+    <br> 
+    <p><a href="{% url 'home' %}"> Return to homepage. </a> </p>
+    {% endblock %} 
+</body>
+</html>

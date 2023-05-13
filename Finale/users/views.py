@@ -60,6 +60,10 @@ class DeliveryAdd(generic.CreateView):
     template_name = "BCD/deliveryAdd.html"
     success_url = reverse_lazy('home')
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        return render(self.request, 'BCD/deliveryDetails.html', {'form': form})
+
 def collection(request):
 	return render(request, 'BCD/collection.html', {})
 
@@ -68,6 +72,10 @@ class collectionAdd(generic.CreateView):
     template_name = "BCD/collectionAdd.html"
     success_url = reverse_lazy('home')
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        return render(self.request, 'BCD/collectionDetails.html', {'form': form})
+
 def booking(request):
 	return render(request, 'BCD/booking.html', {})
 
@@ -75,3 +83,7 @@ class ReserveTable(generic.CreateView):
     form_class = ReserveTableForm
     template_name = "BCD/bookingAdd.html"
     success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        return render(self.request, 'BCD/bookingDetails.html', {'form': form})
