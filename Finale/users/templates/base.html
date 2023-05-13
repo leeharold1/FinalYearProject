@@ -31,11 +31,25 @@
                 Services
               </a>
               <ul class="dropdown-menu">
+              {% if user.username == "PizzaMax" %}
+              <li><a class="dropdown-item" href="{% url 'delivery' %}">Manage Deliveries</a></li>
+              </ul>
+              </li>
+              {% elif user.username == "BurgerKing" %}
+              <li><a class="dropdown-item" href="{% url 'collection' %}">Manage Collections</a></li>
+              </ul>
+              </li>
+              {% elif user.username == "FireSH" %}
+              <li><a class="dropdown-item" href="{% url 'booking' %}">Manage Reservations</a></li>
+              </ul>
+              </li>
+              {% else %}
                 <li><a class="dropdown-item" href="{% url 'delivery' %}">Delivery</a></li>
                 <li><a class="dropdown-item" href="{% url 'booking' %}">Bookings</a></li>
                 <li><a class="dropdown-item" href="{% url 'collection' %}">Colection</a></li>
               </ul>
-            </li>
+              </li>
+              {% endif %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Accounts
