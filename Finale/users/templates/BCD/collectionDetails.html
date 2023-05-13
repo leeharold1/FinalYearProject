@@ -2,23 +2,25 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> Finale - Collection Order Details</title>
-  </head>
-  <body>
-    {% block content %}
+<head>
+  <title>Finale - Collection Order Details</title>
+</head>
+<body>
+
+  {% block content %}
     <div class="container text-center">
-    <h1>Collection Order Details</h1>
-    <p id = 'detailWarning'> (Please take a screenshot or note down <br>your details to show to your delivery driver upon arrival}</p>
-    <p>Order ID: {{ form.instance.orderID }}</p>
-    <p>Customer: {{ form.instance.customer }}</p>
-    <p>Order: {{ form.instance.order }}</p>
-    <p>Price: €{{ form.instance.price }}</p>
-    <p>Notes: {{ form.instance.notes }}</p>
-    <p>Pickup Time: {{ form.instance.pickupTime }}</p>
-    <br> 
-    <p><a href="{% url 'home' %}"> Return to homepage. </a> </p>
+      <h1>Collection Order Details</h1>
+      <p id="detailWarning">(Please take a screenshot or note down<br>your details to show to your delivery driver upon arrival)</p>
+      <p>Order ID: {{ form.instance.orderID }}</p>
+      <p>Customer: {{ form.instance.customer }}</p>
+      <p>Order: {{ form.instance.order }}</p>
+      <p>Price: €{{ form.instance.price }}</p>
+      <p>Notes: {{ form.instance.notes }}</p>
+      <p>Pickup Time: {{ form.instance.pickupTime }}</p>
+      <br>
+      <p><a href="{% url 'home' %}">Return to homepage.</a></p>
     </div>
-    {% endblock %} 
+  {% endblock %}
+   
 </body>
 </html>

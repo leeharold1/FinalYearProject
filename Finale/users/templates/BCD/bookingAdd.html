@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> Finale - Make a Reservation</title>
-  </head>
-  <body>
-    {% block content %}
+<head>
+  <title>Finale - Make a Reservation</title>
+</head>
+<body>
+
+  {% block content %}
     {% if user.is_authenticated %}
     <div class="container text-center">
-              <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-  </form>
-</div>
-              {% else %}
-              <div class="container text-center">
-                <h2> You are not logged in. Please log in <a href="{% url 'login' %}"> here</a> to use our services</h2>
-              </div>
-              {% endif %}
-
-    {% endblock %} 
-  </body>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    {% else %}
+    <div class="container text-center">
+      <h2>You are not logged in. Please log in <a href="{% url 'login' %}">here</a> to use our services</h2>
+    </div>
+    {% endif %}
+  {% endblock %}
+  
+</body>
 </html>

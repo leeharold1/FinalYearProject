@@ -3,50 +3,49 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> Finale - Order for Collection</title>
-  </head>
-  <body>
-    {% block content %}
-            {% if user.is_authenticated %}
-              <div class="container text-center">
-          <h2>Order for Collection!</h2>
-    <br> 
-    <p id="user">{{user.username}}</p>
-    <div class="row">
-  <div class="col">
-    <input type="checkbox" name="group1" id="g11" value="Coke" onclick="check(this, 'g12', 'g13');" />Coke
-    <input type="checkbox" name="group1" id="g12" value="7Up" onclick="check(this, 'g11', 'g13');" />7Up
-    <input type="checkbox" name="group1" id="g13" value="Water" onclick="check(this, 'g11', 'g12');" />Water
-  </div>
-</div>
+<head>
+  <title>Finale - Order for Collection</title>
+</head>
+<body>
 
-<div class="row">
-  <div class="col">
-    <input type="checkbox" name="group2" id="g21" value="330ml" onclick="check(this, 'g22', 'g23');" />330ml
-    <input type="checkbox" name="group2" id="g22" value="500ml" onclick="check(this, 'g21', 'g23');" />500ml
-    <input type="checkbox" name="group2" id="g23" value="1L" onclick="check(this, 'g21', 'g22');" />1L
-  </div>
-</div>
+  {% block content %}
+    {% if user.is_authenticated %}
+      <div class="container text-center">
+        <h2>Order for Collection!</h2>
+        <br>
+        <p id="user">{{ user.username }}</p>
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group1" id="g11" value="Coke" onclick="check(this, 'g12', 'g13');" />Coke
+            <input type="checkbox" name="group1" id="g12" value="7Up" onclick="check(this, 'g11', 'g13');" />7Up
+            <input type="checkbox" name="group1" id="g13" value="Water" onclick="check(this, 'g11', 'g12');" />Water
+          </div>
+        </div>
 
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group2" id="g21" value="330ml" onclick="check(this, 'g22', 'g23');" />330ml
+            <input type="checkbox" name="group2" id="g22" value="500ml" onclick="check(this, 'g21', 'g23');" />500ml
+            <input type="checkbox" name="group2" id="g23" value="1L" onclick="check(this, 'g21', 'g22');" />1L
+          </div>
+        </div>
 
+        <button onclick="updateDrinkAndPrice()">Add Drink</button>
+        <button onclick="clearCart()">Clear Cart</button>
+        <br>
+        <br>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    {% else %}
+      <div class="container text-center">
+        <h2>You are not logged in. Please log in <a href="{% url 'login' %}">here</a> to use our services</h2>
+      </div>
+    {% endif %}
+  {% endblock %}
 
-<button onclick="updateDrinkAndPrice()">Add Drink</button>
-<button onclick="clearCart()">Clear Cart</button>
-<br>
-<br>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-  </form>
-</div>
-              {% else %}
-              <div class="container text-center">
-                <h2> You are not logged in. Please log in <a href="{% url 'login' %}"> here</a> to use our services</h2>
-              </div>
-              {% endif %}
-        
-    {% endblock %} 
-  </body>
+</body>
 </html>
