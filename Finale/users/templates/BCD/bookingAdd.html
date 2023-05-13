@@ -8,11 +8,20 @@
   </head>
   <body>
     {% block content %}
-<form method="post">
+    {% if user.is_authenticated %}
+    <div class="container text-center">
+              <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Submit</button>
   </form>
+</div>
+              {% else %}
+              <div class="container text-center">
+                <h2> You are not logged in. Please log in <a href="{% url 'login' %}"> here</a> to use our services</h2>
+              </div>
+              {% endif %}
+
     {% endblock %} 
   </body>
 </html>
