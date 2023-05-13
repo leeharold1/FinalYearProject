@@ -1,11 +1,5 @@
 console.log("Script connected!");
 
-document.addEventListener('DOMContentLoaded', () => {
-  const userID = document.getElementById('userID');
-  const cleanID = userID.innerText;
-  console.log(cleanID);
-});
-
 var selectedOptions = []; // declare the array as a global variable
 
 function check(checkbox, uncheck1, uncheck2) {
@@ -50,6 +44,9 @@ function updateDrinkAndPrice() {
 
   // Set the totalPrice as the value for the price field
   document.getElementById("id_price").value = totalPrice.toFixed(2);
+
+  // Set the combinedOptions as the value for the order field
+  document.getElementById("id_order").value = selectedOptions;
 
   // Set the combinedOptions as the value for the order field
   document.getElementById("id_order").value = selectedOptions;
