@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms 
-from .models import Reservations, DeliveryOrder
+from .models import Reservations, DeliveryOrder, CollectionOrder
 from django.utils import timezone
 
 class CreateUserForm(UserCreationForm):
@@ -37,4 +37,9 @@ class ReserveTableForm(forms.ModelForm):
 class DeliveryForm(forms.ModelForm):
     class Meta:
         model = DeliveryOrder
+        fields = '__all__'
+
+class CollectionForm(forms.ModelForm):
+    class Meta:
+        model = CollectionOrder
         fields = '__all__'

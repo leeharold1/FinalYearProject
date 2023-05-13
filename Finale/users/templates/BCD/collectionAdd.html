@@ -8,7 +8,38 @@
   </head>
   <body>
     {% block content %}
-        <h1> Collection Order Page</h1>
+        <div class="container text-center">
+          <h2>Order for Collection!</h2>
+    <br> 
+    <p id="user">{{user.username}}</p>
+    <div class="row">
+  <div class="col">
+    <input type="checkbox" name="group1" id="g11" value="Coke" onclick="check(this, 'g12', 'g13');" />Coke
+    <input type="checkbox" name="group1" id="g12" value="7Up" onclick="check(this, 'g11', 'g13');" />7Up
+    <input type="checkbox" name="group1" id="g13" value="Water" onclick="check(this, 'g11', 'g12');" />Water
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <input type="checkbox" name="group2" id="g21" value="330ml" onclick="check(this, 'g22', 'g23');" />330ml
+    <input type="checkbox" name="group2" id="g22" value="500ml" onclick="check(this, 'g21', 'g23');" />500ml
+    <input type="checkbox" name="group2" id="g23" value="1L" onclick="check(this, 'g21', 'g22');" />1L
+  </div>
+</div>
+
+
+
+<button onclick="updateDrinkAndPrice()">Add Drink</button>
+<button onclick="clearCart()">Clear Cart</button>
+<br>
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+</div>
     {% endblock %} 
   </body>
 </html>

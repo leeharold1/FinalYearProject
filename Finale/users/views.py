@@ -3,7 +3,7 @@ from django.db import connection
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .forms import CreateUserForm, ReserveTableForm, DeliveryForm
+from .forms import CreateUserForm, ReserveTableForm, DeliveryForm, CollectionForm
 from django.urls import reverse_lazy
 from django.views import generic
 from .models import Reservations, DeliveryOrder
@@ -63,8 +63,10 @@ class DeliveryAdd(generic.CreateView):
 def collection(request):
 	return render(request, 'BCD/collection.html', {})
 
-def collectionAdd(request):
-	return render(request, 'BCD/collectionAdd.html', {})
+class collectionAdd(generic.CreateView):
+    form_class = CollectionForm
+    template_name = "BCD/collectionAdd.html"
+    success_url = reverse_lazy('home')
 
 def booking(request):
 	return render(request, 'BCD/booking.html', {})

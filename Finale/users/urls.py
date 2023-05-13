@@ -14,5 +14,5 @@ urlpatterns = [
     path('booking', views.booking, name="booking"),
     path('bookingAdd', views.ReserveTable.as_view(), name="bookingAdd"),
     path('collection', views.collection, name="collection"),
-    path('collectionAdd', views.collectionAdd, name="collectionAdd"),
+    path('collectionAdd', views.collectionAdd.as_view(), name="collectionAdd"),
 ]
