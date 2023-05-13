@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -27,3 +28,5 @@ class CollectionOrder(models.Model):
     order = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     notes = models.TextField(blank=True, null=True)
+    pickupTime = models.TimeField(default=timezone.now)
+
