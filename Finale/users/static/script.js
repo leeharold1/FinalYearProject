@@ -16,7 +16,7 @@ function check(checkbox, uncheck1, uncheck2) {
   $('#' + uncheck1 + ',#' + uncheck2).prop('checked', false);
 }
 
-function updateOrderAndPrice() {
+function updateDrinkAndPrice() {
   var options1 = $('input[name="group1"]:checked').val();
   var options2 = $('input[name="group2"]:checked').val();
   var combinedOptions = '';
@@ -57,5 +57,23 @@ function updateOrderAndPrice() {
   // Uncheck all checkboxes
   $('input[type="checkbox"]').prop('checked', false);
 }
+
+function clearCart() {
+  // Reset the selected options array
+  selectedOptions = [];
+
+  // Reset the combined options display
+  $('#combinedOptionsDisplay').text('');
+
+  // Reset the price field
+  document.getElementById("id_price").value = '';
+
+  // Reset the order field
+  document.getElementById("id_order").value = '';
+
+  // Uncheck all checkboxes
+  $('input[type="checkbox"]').prop('checked', false);
+}
+
 
 

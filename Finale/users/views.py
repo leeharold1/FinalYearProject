@@ -55,12 +55,10 @@ class UserEditView(generic.CreateView):
 def delivery(request):
 	return render(request, 'BCD/delivery.html', {})
 
-
 class DeliveryAdd(generic.CreateView):
     form_class = DeliveryForm
     template_name = "BCD/deliveryAdd.html"
     success_url = reverse_lazy('home')
-
 
 def collection(request):
 	return render(request, 'BCD/collection.html', {})
