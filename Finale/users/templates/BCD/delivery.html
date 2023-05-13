@@ -8,6 +8,36 @@
 <body>
 
 {% block content %}
+
+{% if user.username == "PizzaMax" %}
+<div class="container text-center">
+  <h2> Logged in as: PizzaMax
+    <table>
+        <thead>
+            <tr>
+                <th>Delivery ID</th>
+                <th>Customer</th>
+                <th>Address</th>
+                <th>Order</th>
+                <th>Price</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in delivery_orders %}
+            <tr>
+                <td> <p> {{ order.deliveryID }} </p> </td>
+                <td> <p> {{ order.customer }} </p> </td>
+                <td> <p> {{ order.address }} </p> </td>
+                <td> <p> {{ order.order }} </p> </td>
+                <td> <p> {{ order.price }} </p> </td>
+                <td> <p> {{ order.notes }} </p> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
 <div class="container text-center">
   <div class="row">
     <div class="col">
@@ -25,7 +55,8 @@
       <p>Delivery Area - Dublin City Centre</p>
     </div>
   </div>
-</div>
+</div> 
+{% endif %}
 
 {% endblock %} 
 

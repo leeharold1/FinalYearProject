@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .forms import CreateUserForm, ReserveTableForm, DeliveryForm, CollectionForm
 from django.urls import reverse_lazy
 from django.views import generic
-from .models import Reservations, DeliveryOrder
+from .models import Reservations, DeliveryOrder, CollectionOrder
 import json
 from django.http import JsonResponse
 
@@ -53,7 +53,10 @@ class UserEditView(generic.CreateView):
 
 
 def delivery(request):
-	return render(request, 'BCD/delivery.html', {})
+    delivery_orders = DeliveryOrder.objects.all()
+    context = {'delivery_orders': delivery_orders}
+    return render(request, 'BCD/delivery.html', context)
+
 
 class DeliveryAdd(generic.CreateView):
     form_class = DeliveryForm
@@ -65,7 +68,10 @@ class DeliveryAdd(generic.CreateView):
         return render(self.request, 'BCD/deliveryDetails.html', {'form': form})
 
 def collection(request):
-	return render(request, 'BCD/collection.html', {})
+    collection_orders = CollectionOrder.objects.all()
+    context = {'collection_orders': collection_orders}
+    return render(request, 'BCD/collection.html', context)
+
 
 class collectionAdd(generic.CreateView):
     form_class = CollectionForm
@@ -77,7 +83,10 @@ class collectionAdd(generic.CreateView):
         return render(self.request, 'BCD/collectionDetails.html', {'form': form})
 
 def booking(request):
-	return render(request, 'BCD/booking.html', {})
+    reservations = Reservations.objects.all()
+    context = {'reservations': reservations}
+    return render(request, 'BCD/booking.html', context)
+
 
 class ReserveTable(generic.CreateView):
     form_class = ReserveTableForm
