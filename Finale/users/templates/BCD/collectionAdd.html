@@ -34,11 +34,50 @@
         <button onclick="clearCart()">Clear Cart</button>
         <br>
         <br>
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group3" id="g31" value="Whopper" onclick="check(this, 'g32', 'g33');" />Whopper
+            <input type="checkbox" name="group3" id="g32" value="Chicken Royale" onclick="check(this, 'g31', 'g33');" />Chicken Royale
+            <input type="checkbox" name="group3" id="g33" value="Cheeseburger" onclick="check(this, 'g31', 'g32');" />Cheeseburger
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group4" id="g41" value="Small" onclick="check(this, 'g42', 'g43');" />Small
+            <input type="checkbox" name="group4" id="g42" value="Medium" onclick="check(this, 'g41', 'g43');" />Medium
+            <input type="checkbox" name="group4" id="g43" value="Large" onclick="check(this, 'g41', 'g42');" />Large
+          </div>
+        </div>
+        <button onclick="updateMainAndPrice()">Add Pizza to Order</button>
+        <button onclick="clearCart()">Clear Cart</button>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group5" id="g51" value="Fries" onclick="check(this, 'g52', 'g53');" />Fries
+            <input type="checkbox" name="group5" id="g52" value="Chicken Tenders" onclick="check(this, 'g51', 'g53');" />Chicken Tenders
+            <input type="checkbox" name="group5" id="g53" value="Potato Wedges" onclick="check(this, 'g51', 'g52');" />Wedges
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group6" id="g61" value="Small" onclick="check(this, 'g62', 'g63');" />Small
+            <input type="checkbox" name="group6" id="g62" value="Medium" onclick="check(this, 'g61', 'g63');" />Medium
+            <input type="checkbox" name="group6" id="g63" value="Large" onclick="check(this, 'g61', 'g62');" />Large
+          </div>
+        </div>
+        <button onclick="updateSidesAndPrice()">Add Side(s)</button>
+        <button onclick="clearCart()">Clear Cart</button>
+        <br>
+        <br>
         <form method="post">
           {% csrf_token %}
           {{ form.as_p }}
-          <button type="submit">Submit</button>
+          <button type="submit">Place Order</button>
         </form>
+        <br>
       </div>
     {% else %}
       <div class="container text-center">

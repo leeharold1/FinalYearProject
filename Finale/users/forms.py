@@ -37,12 +37,21 @@ class ReserveTableForm(forms.ModelForm):
 class DeliveryForm(forms.ModelForm):
     class Meta:
         model = DeliveryOrder
-        fields = '__all__'
+        fields = ('customer', 'address', 'order', 'price', 'notes')
+        widgets = {
+					'order': forms.TextInput(attrs={'readonly': True}),
+            		'price': forms.TextInput(attrs={'readonly': True}),
+					}
+
 
 class CollectionForm(forms.ModelForm):
     class Meta:
         model = CollectionOrder
-        fields = '__all__'
+        fields = ('customer','order', 'price', 'notes')
+        widgets = {
+					'order': forms.TextInput(attrs={'readonly': True}),
+            		'price': forms.TextInput(attrs={'readonly': True}),
+					}
 
     def save(self, commit=True):
         instance = super().save(commit=False)
