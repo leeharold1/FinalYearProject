@@ -9,6 +9,12 @@
 
   {% block content %}
     {% if user.is_authenticated %}
+        {% if user.username == "PizzaMax" or user.username == "BurgerKing" or user.username == "FireSH" %}
+      <div class="container text-center">
+        <p id="user">{{ user.username }}</p>
+        <h1> You are not authorised to use customer services. Please navigate to your relative company page.</h1>
+      </div>
+        {% else %}
     <div class="container text-center">
       <form method="post">
         {% csrf_token %}
@@ -16,6 +22,7 @@
         <button type="submit">Submit</button>
       </form>
     </div>
+    {% endif %}
     {% else %}
     <div class="container text-center">
       <h2>You are not logged in. Please log in <a href="{% url 'login' %}">here</a> to use our services</h2>
