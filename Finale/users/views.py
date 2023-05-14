@@ -46,12 +46,6 @@ def create_user(request):
 
 	return render(request, 'authenticate/create_user.html', {'form':form,},)
 	
-class UserEditView(generic.CreateView):
-	form_class = UserChangeForm
-	template_name = 'authenticate/edit_profile.html'
-	success_url = reverse_lazy('home')
-
-
 def delivery(request):
     delivery_orders = DeliveryOrder.objects.all()
     context = {'delivery_orders': delivery_orders}
