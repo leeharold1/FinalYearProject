@@ -1,3 +1,61 @@
  body {
- 	background-color: purple; 
+    text-align: center;
  }
+
+ table {
+  text-align: center;
+  font-size: 20px;
+  position: relative;
+  left: 10%;
+ }
+
+ td, th {
+  padding: 15px;
+ }
+
+#user {
+  display: none;
+}
+
+#detailWarning {
+  font-weight: bolder;
+}
+
+.container{
+    background-color: black;
+    color: white;
+    border: 15px double;
+    border-color: #ff6ec7 #00f0ff #00f0ff #ff6ec7;
+}
+
+.text {
+  position: relative; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="CharField"] textarea {
+  background-color: #474747;
+  color: white;
+}
+
+.top {
+    color: white;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+#deliveryDetails {
+  text-align: left;
+}
+
+.combinesOptionsDisplay {
+  color: white;
+}

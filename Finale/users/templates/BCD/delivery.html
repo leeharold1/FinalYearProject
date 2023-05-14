@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Finale - Delivery</title>
+</head>
+<body>
+
+{% block content %}
+
+{% if user.username == "PizzaMax" %}
+<div class="container text-center">
+  <h2> Logged in as: PizzaMax
+    <table>
+        <thead>
+            <tr>
+                <th>Delivery ID</th>
+                <th>Customer</th>
+                <th>Address</th>
+                <th>Order</th>
+                <th>Price</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in delivery_orders %}
+            <tr>
+                <td> <p> {{ order.deliveryID }} </p> </td>
+                <td> <p> {{ order.customer }} </p> </td>
+                <td> <p> {{ order.address }} </p> </td>
+                <td> <p> {{ order.order }} </p> </td>
+                <td> <p> {{ order.price }} </p> </td>
+                <td> <p> {{ order.notes }} </p> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <h1>Lazy night in? Try our food delivery!</h1>
+      <br>
+      <h2>Pizza Max</h2>
+      <br>
+      <img src="http://pizzamax.ie/wp-content/uploads/2020/12/DELIVERY-DRIVERS-WANTED-2.png" height="100px" width="230px" alt="pizzaMaxLogo">
+      <br>
+      <br>
+      <h4>'Pizzas, Burgers, Kebabs, Chips, Sides, Desserts & more...'</h4>
+      <br>
+      <p>See more information <a href="https://pizzamax.ie/">here.</a></p>
+      <br>
+      <p>Delivery Area - Dublin City Centre</p>
+      <br>
+      <button ><a href="{% url 'deliveryAdd' %}"> Place an Order</a></button>
+      <br>
+      <br>
+    </div>
+  </div>
+</div> 
+{% endif %}
+
+{% endblock %} 
+
+</body>
+</html>

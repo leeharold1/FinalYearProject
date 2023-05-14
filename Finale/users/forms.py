@@ -1,6 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms 
+from .models import Reservations, DeliveryOrder, CollectionOrder
+from django.utils import timezone
 
 class CreateUserForm(UserCreationForm):
 	email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
@@ -17,3 +19,43 @@ class CreateUserForm(UserCreationForm):
 		self.fields['username'].widget.attrs['class'] = 'form-control'
 		self.fields['password1'].widget.attrs['class'] = 'form-control'
 		self.fields['password2'].widget.attrs['class'] = 'form-control'
+
+
+
+class ReserveTableForm(forms.ModelForm):
+	class Meta:
+		model = Reservations
+		fields = '__all__'
+		widgets = {
+					'date': forms.DateInput(attrs={'type': 'date', 'min': timezone.now().date()}),
+					'time': forms.TimeInput(attrs={'type': 'time', 'step': 900, 'min': '18:00'}),
+					'party_size': forms.NumberInput(attrs={'min': 2, 'step': 2}),
+					}
+
+
+
+class DeliveryForm(forms.ModelForm):
+    class Meta:
+        model = DeliveryOrder
+        fields = ('customer', 'address', 'order', 'price', 'notes')
+        widgets = {
+					'order': forms.TextInput(attrs={'readonly': True}),
+            		'price': forms.TextInput(attrs={'readonly': True}),
+					}
+
+
+class CollectionForm(forms.ModelForm):
+    class Meta:
+        model = CollectionOrder
+        fields = ('customer','order', 'price', 'notes')
+        widgets = {
+					'order': forms.TextInput(attrs={'readonly': True}),
+            		'price': forms.TextInput(attrs={'readonly': True}),
+					}
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        instance.pickupTime = timezone.now() + timezone.timedelta(minutes=20)
+        if commit:
+            instance.save()
+        return instance

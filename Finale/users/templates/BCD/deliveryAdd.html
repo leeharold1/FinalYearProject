@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Finale - Order for Delivery</title>
+</head>
+<body>
+
+  {% block content %}
+    {% if user.is_authenticated %}
+      {% if user.username == "PizzaMax" or user.username == "BurgerKing" or user.username == "FireSH" %}
+      <div class="container text-center">
+        <p id="business">Logged in as: {{ user.username }}</p>
+        <h1> You are not authorised to use customer services. Please navigate to your relative company page.</h1>
+      </div>
+      {% else %}
+      <div class="container text-center">
+        <br>
+        <p id="user">{{ user.username }}</p>
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group1" id="g11" value="Coke" onclick="check(this, 'g12', 'g13');" />Coke
+            <input type="checkbox" name="group1" id="g12" value="7Up" onclick="check(this, 'g11', 'g13');" />7Up
+            <input type="checkbox" name="group1" id="g13" value="Water" onclick="check(this, 'g11', 'g12');" />Water
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group2" id="g21" value="330ml" onclick="check(this, 'g22', 'g23');" />330ml
+            <input type="checkbox" name="group2" id="g22" value="500ml" onclick="check(this, 'g21', 'g23');" />500ml
+            <input type="checkbox" name="group2" id="g23" value="1L" onclick="check(this, 'g21', 'g22');" />1L
+          </div>
+        </div>
+
+        <button onclick="updateDrinkAndPrice()">Add Drink</button>
+        <button onclick="clearCart()">Clear Cart</button>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group3" id="g31" value="Margherita" onclick="check(this, 'g32', 'g33');" />Margherita
+            <input type="checkbox" name="group3" id="g32" value="Pepperoni" onclick="check(this, 'g31', 'g33');" />Pepperoni
+            <input type="checkbox" name="group3" id="g33" value="Vegetarian" onclick="check(this, 'g31', 'g32');" />Vegetarian
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group4" id="g41" value="Small" onclick="check(this, 'g42', 'g43');" />Small
+            <input type="checkbox" name="group4" id="g42" value="Medium" onclick="check(this, 'g41', 'g43');" />Medium
+            <input type="checkbox" name="group4" id="g43" value="Large" onclick="check(this, 'g41', 'g42');" />Large
+          </div>
+        </div>
+        <button onclick="updateMainAndPrice()">Add Pizza to Order</button>
+        <button onclick="clearCart()">Clear Cart</button>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group5" id="g51" value="Fries" onclick="check(this, 'g52', 'g53');" />Fries
+            <input type="checkbox" name="group5" id="g52" value="Chicken Tenders" onclick="check(this, 'g51', 'g53');" />Chicken Tenders
+            <input type="checkbox" name="group5" id="g53" value="Potato Wedges" onclick="check(this, 'g51', 'g52');" />Wedges
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            <input type="checkbox" name="group6" id="g61" value="Small" onclick="check(this, 'g62', 'g63');" />Small
+            <input type="checkbox" name="group6" id="g62" value="Medium" onclick="check(this, 'g61', 'g63');" />Medium
+            <input type="checkbox" name="group6" id="g63" value="Large" onclick="check(this, 'g61', 'g62');" />Large
+          </div>
+        </div>
+        <button onclick="updateSidesAndPrice()">Add Side(s)</button>
+        <button onclick="clearCart()">Clear Cart</button>
+        <br>
+        <br>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Place Order</button>
+        </form>
+        <br>
+      </div>
+      {% endif %}
+    {% else %}
+      <div class="container text-center">
+        <h2>You are not logged in. Please log in <a href="{% url 'login' %}">here</a> to use our services</h2>
+      </div>
+    {% endif %}
+  {% endblock %}
+  
+</body>
+</html>
