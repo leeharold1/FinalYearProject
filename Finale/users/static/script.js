@@ -48,9 +48,6 @@ function updateDrinkAndPrice() {
   // Set the combinedOptions as the value for the order field
   document.getElementById("id_order").value = selectedOptions;
 
-  // Set the combinedOptions as the value for the order field
-  document.getElementById("id_order").value = selectedOptions;
-
   // Uncheck all checkboxes
   $('input[type="checkbox"]').prop('checked', false);
 }

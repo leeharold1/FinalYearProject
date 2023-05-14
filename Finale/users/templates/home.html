@@ -10,6 +10,8 @@
 
 {% block content %}
 <div class="container text-center">
+  <h1> Welcome to Finale, where we cut the<br> boring parts and get to good part sooner. </h1>
+  <br>
   <div class="row">
     <div class="col">
       <h1> Lazy night in? Try our food delivery!</h1>
@@ -28,6 +30,9 @@
       <p> See more information <a href="https://pizzamax.ie/">here.</a></p>
       <br>
       <p> <b>Delivery Area:</b> Dublin City Centre</p>
+      <button ><a href="{% url 'deliveryAdd' %}"> Place an Order</a></button>
+      <br>
+      <br>
     </div>
     <div class="col">
       <h1> We handle reservations!</h1>
@@ -40,6 +45,9 @@
       <p> See more information <a href="https://www.firesteakhouse.ie/">here.</a></p>
       <br>
       <p> <b>Address:</b> Dawson Street The Mansion, Dublin 2</p>
+      <button ><a href="{% url 'bookingAdd' %}"> Make a Booking</a></button>
+      <br>
+      <br>
     </div>
     <div class="col">
       <h1> Order for quick collection! </h1>
@@ -58,6 +66,9 @@
       <p> See more information <a href="https://www.whopper.ie/">here.</a></p>
       <br>
       <p> <b>Address:</b> Unit 65, Parnell Mall, Ilac Centre, Henry St, Dublin 1, D01 HP73</p>
+      <button ><a href="{% url 'collectionAdd' %}"> Order for Collection</a></button>
+      <br>
+      <br>
     </div>
   </div>
 </div>
